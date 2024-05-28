@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 
 # Get Stock Quote
-df = yf.download('AAPL', start='2012-01-01', end='2024-05-20')
+df = yf.download('AAPL', start='2012-01-01', end='2024-05-26')
 
 # Visualize the closing price history
 plt.figure(figsize=(16, 8))
@@ -50,8 +50,8 @@ x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], 1))
 
 # Build the LSTM Model
 model = Sequential()
-model.add(LSTM(50, return_sequences=True, input_shape=(x_train.shape[1], 1)))
-model.add(LSTM(50, return_sequences=False))
+model.add(LSTM(150, return_sequences=True, input_shape=(x_train.shape[1], 1)))
+model.add(LSTM(150, return_sequences=False))
 model.add(Dense(25))
 model.add(Dense(1))
 
@@ -102,4 +102,3 @@ plt.show()
 
 # Show the valid and predicted prices
 print(valid)
-
